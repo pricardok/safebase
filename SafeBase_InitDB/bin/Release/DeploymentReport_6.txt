@@ -1,0 +1,45 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [SafeBase] (Assembly)
+       [dbo].[fncExportaMultiHTML] (Function)
+       [dbo].[fncLerArquivoRetornaString] (Function)
+       [dbo].[fncResolveHttpRequest] (Function)
+       [dbo].[fncLerArquivo] (Function)
+       [dbo].[fncListarDiretorio] (Function)
+       [dbo].[Help] (Procedure)
+       [dbo].[stpCopyFile] (Procedure)
+       [dbo].[stpDeleteFile] (Procedure)
+       [dbo].[stpExportaQueryArquivo] (Procedure)
+       [dbo].[stpGetInfo] (Procedure)
+       [dbo].[stpImportCSV] (Procedure)
+       [dbo].[stpMoveArquivo] (Procedure)
+       [dbo].[stpRenameFile] (Procedure)
+       [dbo].[stpSendMsgCurl] (Procedure)
+       [dbo].[stpSendMsgTeams] (Procedure)
+       [dbo].[stpSendMsgTelegram] (Procedure)
+       [dbo].[stpSendNotification] (Procedure)
+       [dbo].[stpServerAlert] (Procedure)
+       [dbo].[stpServerJob] (Procedure)
+       [dbo].[stpServerLoads] (Procedure)
+       [dbo].[stpStartBackupDB] (Procedure)
+       [dbo].[stpStartCheckDB] (Procedure)
+       [dbo].[stpStartDefraging] (Procedure)
+       [dbo].[stpStartDeleteBackupsCustom] (Procedure)
+       [dbo].[stpStartDeleteOldBackups] (Procedure)
+       [dbo].[stpStartShrinkingLogFiles] (Procedure)
+       [dbo].[stpStartUpdateStats] (Procedure)
+       [dbo].[stpToZabbix] (Procedure)
+       [dbo].[stpWriteFile] (Procedure)
+       [dbo].[stpZabbixSender] (Procedure)
+
+** Supporting actions

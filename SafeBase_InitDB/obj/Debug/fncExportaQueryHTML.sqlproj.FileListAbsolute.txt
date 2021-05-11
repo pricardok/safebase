@@ -1,0 +1,12 @@
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\bin\Debug\fncExportaQueryHTML.dacpac
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\bin\Debug\Bibliotecas.dll
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\bin\Debug\Bibliotecas.pdb
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\obj\Debug\fncExportaQueryHTML.sqlprojResolveAssemblyReference.cache
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\bin\Debug\fncExportaQueryHTML.dll
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\bin\Debug\fncExportaQueryHTML.pdb
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\obj\Debug\fncExportaQueryHTML.dll
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\obj\Debug\fncExportaQueryHTML.pdb
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\obj\Debug\Model.xml
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\obj\Debug\refactor.xml
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\obj\Debug\postdeploy.sql
+C:\Users\paulo.kuhn\Google Drive\Projetos\CLR\stpExportaQueryHTML\stpExportaQueryHTML\obj\Debug\predeploy.sql

@@ -1,0 +1,13 @@
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\bin\Debug\SafeBase Manager.exe.config
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\bin\Debug\SafeBase Manager.exe
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\bin\Debug\SafeBase Manager.pdb
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\bin\Debug\System.IO.Compression.ZipFile.dll
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase_Manager.Form1.resources
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase_Installer.frmSafeBaseInstaller.resources
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase_Manager.Properties.Resources.resources
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase_Manager.csproj.GenerateResource.cache
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase_Manager.csproj.CoreCompileInputs.cache
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase_Manager.csproj.CopyComplete
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase Manager.exe
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase Manager.pdb
+C:\Users\paulo.kuhn\Documents\Util\Projetos\Sistemas\SafeBase\SafeBase_Installer\obj\Debug\SafeBase_Manager.csprojAssemblyReference.cache
