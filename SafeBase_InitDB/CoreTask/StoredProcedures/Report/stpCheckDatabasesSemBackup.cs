@@ -9,8 +9,8 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpCheckDatabasesSemBackup',GETDATE())";
-            @"  SET NOCOUNT ON
+			//@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpCheckDatabasesSemBackup',GETDATE())";
+			@"  SET NOCOUNT ON
                 DECLARE @Dt_Referencia DATETIME
 	            SELECT @Dt_Referencia = GETDATE()
 	
@@ -24,6 +24,16 @@ namespace InitDB.Client
 	            LEFT JOIN [msdb].[dbo].[backupset] B ON B.[database_name] = A.name AND [type] IN ('D','I','L')
 											            and [backup_start_date] >= DATEADD(hh, -16, @Dt_Referencia)
 	            WHERE	B.[database_name] IS NULL AND A.[name] NOT IN ('tempdb','ReportServerTempDB') AND state_desc <> 'OFFLINE'
+				AND A.[name] NOT IN (
+									SELECT 
+										ADC.database_name                               
+									FROM sys.availability_groups_cluster as AGC                                                                            
+									JOIN sys.dm_hadr_availability_replica_cluster_states as RCS ON AGC.group_id = RCS.group_id                             
+									JOIN sys.dm_hadr_availability_replica_states as ARS ON RCS.replica_id = ARS.replica_id and RCS.group_id = ARS.group_id 
+									JOIN sys.availability_databases_cluster as ADC ON AGC.group_id = ADC.group_id                                          
+									WHERE ARS.is_local = 1
+									AND ARS.role_desc LIKE 'SECONDARY'
+									)
 	
 	            TRUNCATE TABLE [dbo].[CheckDatabasesSemBackup]
 	

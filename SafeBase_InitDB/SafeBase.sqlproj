@@ -57,6 +57,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -82,9 +83,15 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data">
+      <SqlPermissionSet>EXTERNAL_ACCESS</SqlPermissionSet>
+    </Reference>
+    <Reference Include="System.Xml">
+      <SqlPermissionSet>EXTERNAL_ACCESS</SqlPermissionSet>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <SqlPermissionSet>EXTERNAL_ACCESS</SqlPermissionSet>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,12 +170,13 @@
     <Compile Include="CoreTask\StoredProcedures\Loads\stpCargaLogAlwaysOn.cs" />
     <Compile Include="CoreTask\StoredProcedures\Operations\stpSendNotification.cs" />
     <Compile Include="CoreTask\Functions\fncResolveHttpRequest.cs" />
-    <Compile Include="Core\stpZabbixSender.cs" />
+    <Compile Include="CoreTask\StoredProcedures\Alerts\stpAlertaJobAgendamentoFalha.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="InitSoftDB.pfx" />
     <None Include="..\Bibliotecas\Initdb.pfx">
       <Link>Initdb.pfx</Link>
     </None>
+    <None Include="SafeBase.publish.xml" />
   </ItemGroup>
 </Project>

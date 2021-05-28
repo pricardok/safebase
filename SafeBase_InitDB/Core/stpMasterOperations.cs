@@ -9,7 +9,7 @@ using System.Net;
 using System.Text;
 
 public partial class StoredProcedures
-{
+{  
     [Microsoft.SqlServer.Server.SqlProcedure]
     public static void Help()
     {
@@ -1316,7 +1316,15 @@ public partial class StoredProcedures
                                   AND f.state = 0
                                   /*Online*/
                                   AND d.state = 0
-                                  AND d.recovery_model_desc <> 'SIMPLE'; 
+                                  AND d.recovery_model_desc <> 'SIMPLE'
+                                  AND d.[name] NOT IN (SELECT 
+									                    ADC.database_name                               
+								                    FROM sys.availability_groups_cluster as AGC                                                                            
+								                    JOIN sys.dm_hadr_availability_replica_cluster_states as RCS ON AGC.group_id = RCS.group_id                             
+								                    JOIN sys.dm_hadr_availability_replica_states as ARS ON RCS.replica_id = ARS.replica_id and RCS.group_id = ARS.group_id 
+								                    JOIN sys.availability_databases_cluster as ADC ON AGC.group_id = ADC.group_id                                          
+								                    WHERE ARS.is_local = 1
+								                    AND ARS.role_desc LIKE 'SECONDARY'); 
                           ";
 
             DataTable LogFiles = ExecuteSql.Reader(OperationUID, scriptLine);
@@ -2280,7 +2288,6 @@ public partial class StoredProcedures
 
         }
     }
-
 
 }
 

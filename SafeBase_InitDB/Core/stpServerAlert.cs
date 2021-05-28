@@ -9,7 +9,7 @@ using System.Xml;
 
 
 public partial class StoredProcedures
-{
+{ 
 
     [Microsoft.SqlServer.Server.SqlProcedure]
     public static void stpServerAlert(string ServerAlert, int what)
@@ -134,6 +134,11 @@ public partial class StoredProcedures
         {
             
             ExecuteSql.ExecuteQuery(stpAlertaCheckFileBackup.Query(type));
+        }
+
+        if (ServerAlert == "ALERT_JOB_AGENDAMENTO_FAIL") //  ALERTA FALHA EM JOBS DE AGENDAMENTO INTERNO DA SAFEBASE -- TABLE [Alerta] e [AlertaParametro]
+        {
+            ExecuteSql.ExecuteQuery(stpAlertaJobAgendamentoFalha.Query());
         }
 
         // TESTE DE FUNCIONAMENTO  

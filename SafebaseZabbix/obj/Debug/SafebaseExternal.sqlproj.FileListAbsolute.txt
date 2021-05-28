@@ -1,0 +1,5 @@
+C:\Projetos VS\GitHub\safebase\SafebaseZabbix\bin\Debug\SafebaseExternal.dacpac
+C:\Projetos VS\GitHub\safebase\SafebaseZabbix\bin\Debug\SafebaseExternal.dll
+C:\Projetos VS\GitHub\safebase\SafebaseZabbix\bin\Debug\SafebaseExternal.pdb
+C:\Projetos VS\GitHub\safebase\SafebaseZabbix\obj\Debug\SafebaseExternal.dll
+C:\Projetos VS\GitHub\safebase\SafebaseZabbix\obj\Debug\SafebaseExternal.pdb

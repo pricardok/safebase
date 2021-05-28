@@ -42,6 +42,7 @@ namespace InitDB.Client
             int SendOnStart = 1;
             Exception ToThrow = null;
 
+            //Foi "chumbado a database SafeBase, se a database de manutencao alterar, tera que mudar aqui tbm
             string scriptLine = @"
                                  SET QUOTED_IDENTIFIER ON; SET ARITHABORT ON; 
                                  SELECT TOP 1                                                                                                        
@@ -52,7 +53,7 @@ namespace InitDB.Client
                                      CONVERT(VARCHAR(max), getdate(), 121) as Agora,                                                                 
                                      @@SERVICENAME as InstanceName,                                                                                  
                                      ParametersXML.value('(/Customer/" + Operation + @"/Messages/@SendOnStart)[1]', 'varchar(max)') as SendPostLogOnStart 
-                                 FROM [dbo].[ConfigDB] 
+                                 FROM [SafeBase].[dbo].[ConfigDB] 
                                 ";
 
             DataTable Config = ExecuteSql.Reader(OperationUID, scriptLine);
