@@ -78,6 +78,10 @@ namespace SafeBase_Installer
             INSERT [dbo].[AlertaParametro] ([Id_AlertaParametro], [Nm_Alerta], [Nm_Procedure], [Fl_Clear], [Vl_Parametro], [Ds_Metrica], [Nm_Empresa], [Ds_Email], [Ds_Caminho], [Ds_Caminho_Log], [IgnoraDatabase], [Ds_ProfileDBMail], [Ds_BodyFormatMail], [Ds_TipoMail], [IdMailAssinatura], [Ativo], [Ds_Menssageiro_01], [Ds_Menssageiro_02], [Ds_Menssageiro_03], [Ds_Menssageiro_04], [Ds_Menssageiro_05], [Ds_MSG], [Ds_Inclusao_Exclusao]) VALUES (26, N'Alerta Queue', N'stpQueueInfoSendMail', 0, NULL, NULL, N'SafeWeb', N'paulo.kuhn@safeweb.com.br', NULL, N'\Jobs\Reports', N'''master'',''model'',''msdb'',''tempdb''', N'EnviaEmail', N'HTML', N'High', 1, 1, 2, 9, NULL, NULL, NULL, NULL, NULL)
             
             INSERT [dbo].[AlertaParametro] ([Id_AlertaParametro], [Nm_Alerta], [Nm_Procedure], [Fl_Clear], [Vl_Parametro], [Ds_Metrica], [Nm_Empresa], [Ds_Email], [Ds_Caminho], [Ds_Caminho_Log], [IgnoraDatabase], [Ds_ProfileDBMail], [Ds_BodyFormatMail], [Ds_TipoMail], [IdMailAssinatura], [Ativo], [Ds_Menssageiro_01], [Ds_Menssageiro_02], [Ds_Menssageiro_03], [Ds_Menssageiro_04], [Ds_Menssageiro_05], [Ds_MSG], [Ds_Inclusao_Exclusao]) VALUES (27, N'Alerta File DB', N'stpcheckFileBackup', 0, NULL, NULL, N'SafeWeb', N'paulo.kuhn@safeweb.com.br', NULL, N'\Jobs\Reports', N'''tempdb'',''ReportServerTempDB''', N'EnviaEmail', N'HTML', N'High', 1, 1, 2, 9, NULL, NULL, NULL, NULL, NULL)
+            
+            INSERT [dbo].[AlertaParametro] ([Id_AlertaParametro], [Nm_Alerta], [Nm_Procedure], [Fl_Clear], [Vl_Parametro], [Ds_Metrica], [Nm_Empresa], [Ds_Email], [Ds_Caminho], [Ds_Caminho_Log], [IgnoraDatabase], [Ds_ProfileDBMail], [Ds_BodyFormatMail], [Ds_TipoMail], [IdMailAssinatura], [Ativo], [Ds_Menssageiro_01], [Ds_Menssageiro_02], [Ds_Menssageiro_03], [Ds_Menssageiro_04], [Ds_Menssageiro_05], [Ds_MSG], [Ds_Inclusao_Exclusao], [ZabbixAlertName], [ZabbixServer], [ZabbixPath], [ZabbixLocalServer]) VALUES (28, N'Envia Zabbix Sender', N'stpZabbixSender', 1, NULL, NULL, N'SafeWeb', N'dataservices@safeweb.com.br', NULL, N'\Jobs\Reports', NULL, N'EnviaEmail', N'HTML', N'High', 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+
+            INSERT [dbo].[AlertaParametro] ([Id_AlertaParametro], [Nm_Alerta], [Nm_Procedure], [Fl_Clear], [Vl_Parametro], [Ds_Metrica], [Nm_Empresa], [Ds_Email], [Ds_Caminho], [Ds_Caminho_Log], [IgnoraDatabase], [Ds_ProfileDBMail], [Ds_BodyFormatMail], [Ds_TipoMail], [IdMailAssinatura], [Ativo], [Ds_Menssageiro_01], [Ds_Menssageiro_02], [Ds_Menssageiro_03], [Ds_Menssageiro_04], [Ds_Menssageiro_05], [Ds_MSG], [Ds_Inclusao_Exclusao], [ZabbixAlertName], [ZabbixServer], [ZabbixPath], [ZabbixLocalServer]) VALUES (29, N'Job Agendamento Falha', N'stpAlertaJobAgendamentoFalha', 0, 24, N'Horas', N'SafeWeb', N'dataservices@safeweb.com.br', NULL, N'\Jobs\Reports', NULL, N'EnviaEmail', N'HTML', N'High', 1, 1, 2, 9, NULL, NULL, NULL, N'49353855', NULL)
 
             SET IDENTITY_INSERT [dbo].[AlertaParametro] OFF
         
@@ -189,6 +193,8 @@ namespace SafeBase_Installer
 
             INSERT [dbo].[AlertaParametroMenssage] ([Id], [IdAlertaParametro], [SubjectProblem], [SubjectSolution], [MailTextProblem], [MailTextSolution], [IdUsuarioCriacao], [DataCriacao], [DataAlteracao], [NomeMsg]) VALUES (47, 18, N'Alerta - #AlwaysOn Status:', N'Solução - #AlwaysOn Status: ', N'Prezados,<BR /><BR /> Identifiquei um problema de AlwaysOn na instância: '+@@SERVERNAME+', favor verifique esta informação.', N'Prezados,<BR /><BR /> Não existem mais problemas de AlwaysOn na Instância: '+@@SERVERNAME+'', NULL, CAST(N'2020-04-01T17:14:59.613' AS DateTime), NULL, N'Check_AlwaysOn') 
 
+            INSERT [dbo].[AlertaParametroMenssage] ([Id], [IdAlertaParametro], [SubjectProblem], [SubjectSolution], [MailTextProblem], [MailTextSolution], [IdUsuarioCriacao], [DataCriacao], [DataAlteracao], [NomeMsg]) VALUES (48, 29, N'Alerta #JobsAgendamentoFail - Falha de execução de Jobs Agendandos', N'Solucao #JobsAgendamentoFail', N'Prezados,<BR /><BR />Segue <b> jobs agendados internamente na SefaBase </b> que Falharam na instância mencionada no assunto do e-mail, verifique o relatório abaixo.', N'Prezados,<BR /><BR />Segue <b> TOP 5 execuções jobs agendados internamente na SefaBase </b>', NULL, CAST(N'2020-04-01T17:14:59.613' AS DateTime), NULL, NULL)   
+            
             SET IDENTITY_INSERT [dbo].[AlertaParametroMenssage] OFF
 
 
@@ -338,9 +344,64 @@ namespace SafeBase_Installer
 
             INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (72, 27, 25, 1, N'Alerta File DB - Email', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
 
+            INSERT [dbo].[AlertaEnvio] ([IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (29, 20, 0, N'Job Agendamento Falha - Telegram', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (29, 25, 1, N'Job Agendamento Falha - Email', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (29, 22, 0, N'Job Agendamento Falha - Teams', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (76, 1, 28, 0, N'Processo Bloqueado - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (77, 2, 28, 0, N'Arquivo de Log Full - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (78, 3, 28, 0, N'Espaco Disco - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (79, 4, 28, 0, N'Consumo CPU - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (80, 5, 28, 0, N'Tempdb Utilizacao Arquivo MDF - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (81, 6, 28, 0, N'Conexão SQL Server - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (82, 7, 28, 0, N'Status Database - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (83, 8, 28, 0, N'Página Corrompida - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (84, 9, 28, 0, N'Queries Demoradas - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (85, 10, 28, 0, N'Trace Queries Demoradas - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (86, 11, 28, 0, N'Job Falha - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (87, 12, 28, 0, N'SQL Server Reiniciado - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (88, 13, 28, 0, N'Database Criada - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (89, 14, 28, 0, N'Database sem Backup - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (90, 15, 28, 0, N'Banco de Dados Corrompido - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (91, 16, 28, 0, N'Processos em Execução - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (92, 17, 28, 0, N'Alteracao database - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (93, 18, 28, 0, N'AlwaysOn - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (94, 19, 28, 0, N'Check DB - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (95, 21, 28, 0, N'CheckList - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (96, 23, 28, 0, N'Fragmentacao Indice - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (97, 24, 28, 0, N'Historico Erros - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (98, 26, 28, 0, N'Alerta Queue - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (99, 27, 28, 1, N'Alerta File DB - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
+            
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (100, 29, 28, 0, N'Job Agendamento Falha - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
 
             SET IDENTITY_INSERT [dbo].[AlertaEnvio] OFF
-
+            
  
             SET IDENTITY_INSERT [dbo].[LayoutHtmlCss] ON 
  
@@ -693,7 +754,7 @@ namespace SafeBase_Installer
       },
       ""Schedule"": {
          ""@Enabled"": ""1"",
-         ""@StepSQLCommand"": ""EXECUTE [dbo].[stpStartShrinkingLogFiles] 500"",
+         ""@StepSQLCommand"": ""EXECUTE [dbo].[stpStartShrinkingLogFiles] 1024"",
          ""@active_end_date"": ""99991231"",
          ""@active_end_time"": ""235959"",
          ""@active_start_date"": ""20000101"",

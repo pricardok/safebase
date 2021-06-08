@@ -115,6 +115,10 @@ namespace SafeBase_Installer
 	            [Ds_Menssageiro_05] [varchar](20) NULL,
 	            [Ds_MSG] [varchar](20) NULL,
 	            [Ds_Inclusao_Exclusao] [nvarchar](100) NULL,
+				[ZabbixAlertName] varchar(128) NULL,
+				[ZabbixServer] varchar(128) NULL,
+				[ZabbixPath] varchar(256) NULL,
+				[ZabbixLocalServer] varchar(128) NULL,
             PRIMARY KEY CLUSTERED 
             (
 	            [Id_AlertaParametro] ASC
@@ -1451,7 +1455,7 @@ namespace SafeBase_Installer
                               TipoObjeto VARCHAR(20), 
                               DesQuery   XML
                              );
-                             CREATE CLUSTERED INDEX idx_HistoricoAlteracaoObjetos ON safebase.dbo.HistoricoAlteracaoObjetos(Id);
+             CREATE CLUSTERED INDEX idx_HistoricoAlteracaoObjetos ON safebase.dbo.HistoricoAlteracaoObjetos(Id);
 
  
             /****** Object:  Table [dbo].[Tabela]    Script Date: 05/04/2020 20:25:57 ******/
@@ -1483,6 +1487,100 @@ namespace SafeBase_Installer
             )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
             ) ON [PRIMARY]
  
+			
+			SET ANSI_NULLS ON
+			GO
+
+			SET QUOTED_IDENTIFIER ON
+			GO
+			
+			CREATE TABLE [job].[Job](
+				[IdJob] [int] IDENTITY(1,1) NOT NULL,
+				[Nome] [varchar](128) NULL,
+				[Descricao] [varchar](128) NULL,
+				[Solicitante] [varchar](30) NULL,
+				[Frequencia] [tinyint] NULL,
+				[DiaUtil] [bit] NULL,
+				[ExecIntervalo] [bit] NULL,
+				[Comando] [nvarchar](max) NULL,
+				[DataInicio] [date] NULL,
+				[DataFim] [date] NULL,
+				[HoraIni] [varchar](6) NULL,
+				[HoraFim] [varchar](6) NULL,
+				[Ativo] [bit] NULL,
+				[UltimaExec] [datetime] NULL,
+			 CONSTRAINT [Pk_Job] PRIMARY KEY CLUSTERED 
+			(
+				[IdJob] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] 
+			GO
+			
+			ALTER TABLE [job].[Job] ADD  DEFAULT ((0)) FOR [DiaUtil]
+			GO
+			
+			ALTER TABLE [job].[Job] ADD  DEFAULT ((0)) FOR [ExecIntervalo]
+			GO
+			
+			ALTER TABLE [job].[Job] ADD  DEFAULT (getdate()) FOR [DataInicio]
+			GO
+			
+			ALTER TABLE [job].[Job] ADD  DEFAULT ('2099-12-31') FOR [DataFim]
+			GO
+			
+			ALTER TABLE [job].[Job] ADD  DEFAULT ((1)) FOR [Ativo]
+			GO
+			
+			
+			SET ANSI_NULLS ON
+			GO
+			
+			SET QUOTED_IDENTIFIER ON
+			GO
+			
+			CREATE TABLE [job].[JobAgendamento](
+				[IdJobAgend] [int] IDENTITY(1,1) NOT NULL,
+				[JobId] [int] NULL,
+				[DiaSemana] [tinyint] NULL,
+				[DataExec] [date] NULL,
+				[HoraExec] [varchar](6) NULL,
+				[MensalExec] [tinyint] NULL,
+				[Intervalo] [int] NULL,
+			 CONSTRAINT [Pk_JobAgend] PRIMARY KEY CLUSTERED 
+			(
+				[IdJobAgend] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY]
+			GO
+			
+			
+			SET ANSI_NULLS ON
+			GO
+			
+			SET QUOTED_IDENTIFIER ON
+			GO
+			
+			CREATE TABLE [job].[JobHistorico](
+				[IdJobHist] [int] IDENTITY(1,1) NOT NULL,
+				[JobId] [int] NULL,
+				[DataExec] [datetime] NULL,
+				[TempoExec] [int] NULL,
+				[MessageError] [nvarchar](4000) NULL,
+				[Error] [bit] NULL,
+				[Enviado] [bit] NULL,
+			 CONSTRAINT [Pk_JobHist] PRIMARY KEY CLUSTERED 
+			(
+				[IdJobHist] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY]
+			GO
+			
+			ALTER TABLE [job].[JobHistorico] ADD  DEFAULT ((0)) FOR [Error]
+			GO
+			
+			ALTER TABLE [job].[JobHistorico] ADD  DEFAULT ((0)) FOR [Enviado]
+			GO
+
             ALTER TABLE [dbo].[Alerta] ADD  DEFAULT (getdate()) FOR [Dt_Alerta]
 
             ALTER TABLE [dbo].[AlertaEnvio] ADD  DEFAULT (getdate()) FOR [DataCriação]

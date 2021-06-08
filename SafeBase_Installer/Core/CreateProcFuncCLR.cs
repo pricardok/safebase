@@ -171,6 +171,75 @@ namespace SafeBase_Installer
             AS
             EXTERNAL NAME [" + use + @"].[StoredProcedures].[stpSendNotification]
             GO
+            
+             /****** Object:  StoredProcedure [dbo].[stpZabbixSender]    Script Date: 08/06/2021 15:09:47 ******/
+            SET ANSI_NULLS OFF
+            GO
+
+            SET QUOTED_IDENTIFIER OFF
+            GO
+
+            CREATE PROCEDURE [dbo].[stpZabbixSender]
+            	@Ds_caminho [nvarchar](max),
+            	@Ds_ZabbixServer [nvarchar](max),
+            	@Ds_ZabbixLocalServer [nvarchar](max),
+            	@ZabbixAlertName [nvarchar](max),
+            	@valor [bigint]
+            WITH EXECUTE AS CALLER
+            AS
+            EXTERNAL NAME [SafebaseZabbix].[StoredProcedures].[stpZabbixSender]
+            GO
+            
+            /****** Object:  StoredProcedure [dbo].[stpJobExecuteSSIS]    Script Date: 08/06/2021 15:09:59 ******/
+            SET ANSI_NULLS OFF
+            GO
+            
+            SET QUOTED_IDENTIFIER OFF
+            GO
+            
+            CREATE PROCEDURE [dbo].[stpJobExecuteSSIS]
+            	@package_name_INPUT [nvarchar](max),
+            	@folder_name_INPUT [nvarchar](max),
+            	@project_name_INPUT [nvarchar](max)
+            WITH EXECUTE AS CALLER
+            AS
+            EXTERNAL NAME [SafebaseZabbix].[StoredProcedures].[stpJobExecuteSSIS]
+            GO
+            USE [SafeBase]
+            GO
+            
+            /****** Object:  StoredProcedure [dbo].[stpJobGravaHistorico]    Script Date: 08/06/2021 15:10:08 ******/
+            SET ANSI_NULLS OFF
+            GO
+            
+            SET QUOTED_IDENTIFIER OFF
+            GO
+            
+            CREATE PROCEDURE [dbo].[stpJobGravaHistorico]
+            	@JobId [int],
+            	@TimeExecIni [datetime],
+            	@TimeExecFim [datetime],
+            	@SegundosExec [int],
+            	@Error [int],
+            	@ErrorMessage [nvarchar](max)
+            WITH EXECUTE AS CALLER
+            AS
+            EXTERNAL NAME [SafebaseZabbix].[StoredProcedures].[stpJobGravaHistorico]
+            GO
+            
+            /****** Object:  StoredProcedure [dbo].[stpJobSchedule]    Script Date: 08/06/2021 15:10:19 ******/
+            SET ANSI_NULLS OFF
+            GO
+            
+            SET QUOTED_IDENTIFIER OFF
+            GO
+            
+            CREATE PROCEDURE [dbo].[stpJobSchedule]
+            	@Force_freq [int] = 0
+            WITH EXECUTE AS CALLER
+            AS
+            EXTERNAL NAME [SafebaseZabbix].[StoredProcedures].[stpJobSchedule]
+            GO
 
              ";
 

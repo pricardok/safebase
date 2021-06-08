@@ -3,7 +3,3 @@ C:\Projetos VS\GitHub\safebase\SafebaseZabbix\bin\Debug\SafebaseZabbix.dll
 C:\Projetos VS\GitHub\safebase\SafebaseZabbix\bin\Debug\SafebaseZabbix.pdb
 C:\Projetos VS\GitHub\safebase\SafebaseZabbix\obj\Debug\SafebaseZabbix.dll
 C:\Projetos VS\GitHub\safebase\SafebaseZabbix\obj\Debug\SafebaseZabbix.pdb
-C:\Projetos VS\GitHub\safebase\SafebaseZabbix\obj\Debug\Model.xml
-C:\Projetos VS\GitHub\safebase\SafebaseZabbix\obj\Debug\refactor.xml
-C:\Projetos VS\GitHub\safebase\SafebaseZabbix\obj\Debug\postdeploy.sql
-C:\Projetos VS\GitHub\safebase\SafebaseZabbix\obj\Debug\predeploy.sql
