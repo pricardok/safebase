@@ -24,7 +24,7 @@ namespace SafeBase_Installer
             DECLARE 
 	
                 @AccountName VARCHAR(100) = 'SafeMailDB',
-                @email_address VARCHAR(100) = 'dataservices@safeweb.com.br',
+                @email_address VARCHAR(100) = 'monitoramentodb@safeweb.com.br',
                 @display_name VARCHAR(100) = 'SafeBase' +'-'+ @@servername,
                 @replyto_address VARCHAR(100) = '',  
                 @description VARCHAR(100) = '',   
