@@ -10,7 +10,7 @@ begin
 			@name = N'MonitoramentoDB',
 			@enabled = 1,
 			@pager_days = 0,
-			@email_address = N'monitoradb@safeweb.com.br'	-- To put more Emails: 'EMail1@provedor.com;EMail2@provedor.com'	
+			@email_address = N'monitoramentodb@safeweb.com.br'	-- To put more Emails: 'EMail1@provedor.com;EMail2@provedor.com'	
 
 end
 
