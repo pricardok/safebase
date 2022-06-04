@@ -9,8 +9,10 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaProcessoBloqueado',GETDATE())";
-             @"	SET NOCOUNT ON
+			 //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaProcessoBloqueado',GETDATE())";
+			 @"	SET NOCOUNT ON;
+				
+				SET QUOTED_IDENTIFIER ON;
 
 	            -- Processo Bloqueado
 	            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Processo Bloqueado' AND Ativo = 1)

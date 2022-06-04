@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -13,10 +14,23 @@ namespace InitDB.Client
 
 			@"  
             
-            SET NOCOUNT ON
+            SET NOCOUNT ON;
+			
+			SET QUOTED_IDENTIFIER ON;
+			
+			---- Parametriza qual alerta no momento			
+			DECLARE @TipodeBackup  VARCHAR(5)
 
-            ---- Recupera os parametros base
-            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Alerta File DB' AND Ativo = 1)
+			SET @TipodeBackup =  '" + type + @"'
+			
+			DECLARE @Id_AlertaParametro INT; 
+			
+			IF @TipodeBackup = 'I'
+				SET @Id_AlertaParametro  = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Alerta File DB DIFF' AND Ativo = 1)
+			ELSE
+				SET @Id_AlertaParametro  = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Alerta File DB' AND Ativo = 1)	
+
+            ---- Recupera os parametros base           
             DECLARE @Ds_Caminho_Base VARCHAR(100) = (SELECT Ds_Caminho FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'CheckList')
             DECLARE @Telegram INT = (select Id_AlertaParametro from AlertaParametro WHERE Nm_Alerta = 'Envia Telegram')
             DECLARE @Teams INT = (select Id_AlertaParametro from AlertaParametro WHERE Nm_Alerta = 'Envia Teams')

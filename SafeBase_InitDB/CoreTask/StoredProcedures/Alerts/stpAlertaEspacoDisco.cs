@@ -10,7 +10,12 @@ namespace InitDB.Client
         {
             return
             //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaEspacoDisco',GETDATE())";
-            @"  DECLARE @OAP_Habilitado sql_variant
+            @"  
+                SET NOCOUNT ON;
+
+				SET QUOTED_IDENTIFIER ON;
+
+                DECLARE @OAP_Habilitado sql_variant
 
                 SELECT	@OAP_Habilitado = value_in_use
                 FROM sys.configurations WITH (NOLOCK)

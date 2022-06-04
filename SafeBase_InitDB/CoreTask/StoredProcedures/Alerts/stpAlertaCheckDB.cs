@@ -10,9 +10,11 @@ namespace InitDB.Client
         {
             
             return
-            // @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaCheckDB',GETDATE())";
-            @"
-                SET NOCOUNT ON
+			// @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaCheckDB',GETDATE())";
+			@"
+                SET NOCOUNT ON;
+
+			SET QUOTED_IDENTIFIER ON;
 
 	            IF ( OBJECT_ID('tempdb..#TempLog') IS NOT NULL ) 
 		            DROP TABLE #TempLog

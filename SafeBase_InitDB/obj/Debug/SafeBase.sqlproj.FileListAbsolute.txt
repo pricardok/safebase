@@ -28,4 +28,4 @@ C:\Projetos VS\GitHub\safebase\SafeBase_InitDB\obj\Debug\postdeploy.sql
 C:\Projetos VS\GitHub\safebase\SafeBase_InitDB\obj\Debug\predeploy.sql
 C:\Projetos VS\GitHub\safebase\SafeBase_InitDB\obj\Debug\SafeBase.dll
 C:\Projetos VS\GitHub\safebase\SafeBase_InitDB\obj\Debug\SafeBase.pdb
-C:\Projetos VS\GitHub\safebase\SafeBase_InitDB\obj\Debug\SafeBase.sqlprojAssemblyReference.cache
+C:\Projetos VS\GitHub\safebase\SafeBase_InitDB\obj\Debug\SafeBase.sqlproj.AssemblyReference.cache

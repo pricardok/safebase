@@ -11,6 +11,10 @@ namespace InitDB.Client
             return
             // @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaDatabaseCriada',GETDATE())";
             @"
+                SET NOCOUNT ON;
+
+                SET QUOTED_IDENTIFIER ON;
+
                 -- Recupera os parametros
 	            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Database Criada' AND Ativo = 1)
                 DECLARE @Ds_Caminho_Base VARCHAR(100) = (SELECT Ds_Caminho FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'CheckList')

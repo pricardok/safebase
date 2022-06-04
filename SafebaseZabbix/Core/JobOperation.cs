@@ -25,7 +25,6 @@ public partial class StoredProcedures
 
         SET NOCOUNT ON
 
-
 		DECLARE @Force_freq INT = " + Force_freq + @"
 
 		/*Variaveis globais*/
@@ -62,7 +61,8 @@ public partial class StoredProcedures
 			@DataExec date,
 			@HoraExec int,
 			@MensalExec tinyint,
-			@Intervalo int;
+			@Intervalo int,
+			@DiaMensal INT ;
 
 
 
@@ -80,6 +80,7 @@ public partial class StoredProcedures
 			FETCH NEXT FROM cur_queue_jobs INTO @JobId, @Nome, @Descricao, @Solicitante, @Frequencia, @DiaUtil, @ExecIntervalo, @Comando, 
 												@DataInicio, @DataFim, @HoraIni, @HoraFIm, @UltimaExec;
 
+
 			WHILE @@FETCH_STATUS = 0
 			BEGIN	
 					/*Limpa variaveis Job*/
@@ -94,6 +95,7 @@ public partial class StoredProcedures
 					SET @HoraExec		=NULL;
 					SET @MensalExec		=NULL;
 					SET @Intervalo		=NULL;
+					SET @DiaMensal		=NULL;
 
 
 				/*Execucao unica em data escolhida*/	
@@ -377,6 +379,14 @@ public partial class StoredProcedures
 														DAY(GETDATE()) = DAY(EOMONTH(GETDATE()))
 																OR
 														DAY(@DiaExecIni) = DAY(EOMONTH(GETDATE()))
+													)
+								)
+								--Execução com dia do mês a escolha
+									OR
+								(MensalExec = 8 AND (
+													DAY(GETDATE()) = (SELECT DiaMensal FROM [SafeBase].[job].[JobAgendamento] where JobId = @JobId)
+														OR
+													DAY(@DiaExecIni) = (SELECT DiaMensal FROM [SafeBase].[job].[JobAgendamento] where JobId = @JobId)
 													)
 								)
 							)

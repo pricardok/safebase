@@ -9,10 +9,12 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaTempdbUtilizacaoArquivoMDF',GETDATE())";
-            @"
-                SET NOCOUNT ON
-                
+			//@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaTempdbUtilizacaoArquivoMDF',GETDATE())";
+			@"
+                SET NOCOUNT ON;              
+
+				SET QUOTED_IDENTIFIER ON;
+
 	            -- Tamanho Arquivo MDF Tempdb
 	            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Tempdb Utilizacao Arquivo MDF' AND Ativo = 1)
                 DECLARE @Ds_Caminho_Base VARCHAR(100) = (SELECT Ds_Caminho FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'CheckList')

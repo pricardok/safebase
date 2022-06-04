@@ -171,6 +171,7 @@
     <Compile Include="CoreTask\StoredProcedures\Operations\stpSendNotification.cs" />
     <Compile Include="CoreTask\Functions\fncResolveHttpRequest.cs" />
     <Compile Include="CoreTask\StoredProcedures\Alerts\stpAlertaJobAgendamentoFalha.cs" />
+    <Compile Include="CoreTask\StoredProcedures\Alerts\stpAlertaFailoverAlwaysOn.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="InitSoftDB.pfx" />

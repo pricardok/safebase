@@ -12,9 +12,11 @@ namespace InitDB.Client
             string NocheckBackup = ExecuteSql.ExecuteQuery("SELECT CASE WHEN IgnoraDatabase IS NULL THEN '''''' ELSE IgnoraDatabase END AS IgnoraDatabase FROM [dbo].[AlertaParametro] where Nm_Alerta = 'Database sem Backup'");
             //string NocheckBackup = "''";
             return
-            // @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaDatabaseSemBkp',GETDATE())";
+			// @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaDatabaseSemBkp',GETDATE())";
 
-            @"  SET NOCOUNT ON
+			@"  SET NOCOUNT ON;
+
+				SET QUOTED_IDENTIFIER ON;
 
 	            -- Databases sem Backup
 	            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Database sem Backup' AND Ativo = 1)

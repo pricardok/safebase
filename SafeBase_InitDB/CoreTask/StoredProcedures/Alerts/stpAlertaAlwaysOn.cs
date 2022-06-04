@@ -13,7 +13,10 @@ namespace InitDB.Client
             return
             // @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaAlteracaoDB',GETDATE())";
             @"
-              SET NOCOUNT ON
+            
+            SET NOCOUNT ON;
+
+            SET QUOTED_IDENTIFIER ON;
 
               -- Recupera os parametros base
               DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'AlwaysOn' AND Ativo = 1)

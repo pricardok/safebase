@@ -9,8 +9,10 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaConexaoSQLServer',GETDATE())";
-            @"  SET NOCOUNT ON
+			//@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaConexaoSQLServer',GETDATE())";
+			@"  SET NOCOUNT ON;
+
+			SET QUOTED_IDENTIFIER ON;
 
 	            -- Conexões SQL Server
 	            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Conexão SQL Server' AND Ativo = 1)

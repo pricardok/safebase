@@ -9,9 +9,11 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            // @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaArquivoLogFull',GETDATE())";
-            @"
-              	SET NOCOUNT ON
+			// @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaArquivoLogFull',GETDATE())";
+			@"
+              	SET NOCOUNT ON;
+
+			SET QUOTED_IDENTIFIER ON;
 
 	            -- Arquivo de Log Full
 	            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Arquivo de Log Full' and Ativo = 1)

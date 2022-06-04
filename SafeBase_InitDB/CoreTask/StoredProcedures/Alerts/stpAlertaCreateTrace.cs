@@ -15,7 +15,9 @@ namespace InitDB.Client
             return
             //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpCreateTrace',GETDATE())";
 
-            @"  SET NOCOUNT ON
+            @"  SET NOCOUNT ON;
+
+                SET QUOTED_IDENTIFIER ON;
 
                 DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Trace Queries Demoradas' AND Ativo = 1)
                 DECLARE @Ds_Caminho_Base varchar(256) = (SELECT Ds_Caminho FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'CheckList')

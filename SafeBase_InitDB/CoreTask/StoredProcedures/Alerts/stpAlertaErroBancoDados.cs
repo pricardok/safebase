@@ -9,9 +9,11 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaErroBancoDados',GETDATE())";
-            @"
-                SET NOCOUNT ON
+			//@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaErroBancoDados',GETDATE())";
+			@"
+                SET NOCOUNT ON;
+
+				SET QUOTED_IDENTIFIER ON;
 
 	            -- Declara as variaveis
 	            DECLARE @Subject VARCHAR(500), @Fl_Tipo TINYINT, @importance AS VARCHAR(6), @EmailBody VARCHAR(MAX), @EmptyBodyEmail VARCHAR(MAX),

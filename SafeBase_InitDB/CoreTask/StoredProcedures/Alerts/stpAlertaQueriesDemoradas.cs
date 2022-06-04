@@ -9,8 +9,10 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            // @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaQueriesDemoradas',GETDATE())";
-            @"  SET NOCOUNT ON
+			// @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaQueriesDemoradas',GETDATE())";
+			@"  SET NOCOUNT ON;
+				
+				SET QUOTED_IDENTIFIER ON;
 
 	            -- Queries Demoradas
 	            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Queries Demoradas' AND Ativo = 1)

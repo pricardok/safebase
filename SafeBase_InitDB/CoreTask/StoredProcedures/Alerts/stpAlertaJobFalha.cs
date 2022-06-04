@@ -9,8 +9,10 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            // @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaJobFalha',GETDATE())";
-            @"  SET NOCOUNT ON
+			// @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaJobFalha',GETDATE())";
+			@"  SET NOCOUNT ON;
+				
+				SET QUOTED_IDENTIFIER ON;
 		
 	            IF ( OBJECT_ID('tempdb..#Result_History_Jobs') IS NOT NULL )
 		            DROP TABLE #Result_History_Jobs

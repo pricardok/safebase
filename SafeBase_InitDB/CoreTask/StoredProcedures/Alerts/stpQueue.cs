@@ -13,6 +13,8 @@ namespace InitDB.Client
             @"
             SET NOCOUNT ON;
 
+            SET QUOTED_IDENTIFIER ON;
+
 		    -- Recupera os parametros base
             DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Alerta Queue' AND Ativo = 1)
             DECLARE @Ds_Caminho_Base VARCHAR(100) = (SELECT Ds_Caminho FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'CheckList')

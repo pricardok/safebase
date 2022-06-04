@@ -116,7 +116,32 @@ namespace SafeBase_Installer
  
                 RETURN;   
             END
-
+            
+            SET ANSI_NULLS ON
+            GO
+            SET QUOTED_IDENTIFIER ON
+            GO
+            CREATE FUNCTION fncAgPrimary  (	
+                @DbPrimary sysname 
+            )RETURNS INT
+            WITH ENCRYPTION
+            AS
+            BEGIN                
+            	RETURN (
+            			SELECT 
+            				COUNT(1) AS ContDB			
+            			FROM sys.databases db			
+                        LEFT JOIN [SafeBase].[dbo].[vwCheckAG] ag				
+            				ON db.name = ag.database_name			
+            			WHERE 				
+            				(				 
+            				 (db.replica_id is null and name = @DbPrimary) 						
+            				    OR				 
+            				 (ag.is_local = 1 AND ag.is_primary_replica = 1 AND ag.database_name = @DbPrimary)				
+            				)			
+            			)  
+            END
+            GO
 
             ";
 

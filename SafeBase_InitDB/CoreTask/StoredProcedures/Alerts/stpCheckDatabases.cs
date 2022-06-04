@@ -11,9 +11,12 @@ namespace InitDB.Client
             string NocheckDataBase = ExecuteSql.ExecuteQuery("SELECT CASE WHEN IgnoraDatabase IS NULL THEN '''''' ELSE IgnoraDatabase END AS IgnoraDatabase FROM [dbo].[AlertaParametro] where Nm_Alerta = 'Check DB'");
 
             return
-            //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpCheckDatabases',GETDATE())";
-            @"
-                SET NOCOUNT ON
+			//@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpCheckDatabases',GETDATE())";
+			@"
+                SET NOCOUNT ON;
+				
+				SET QUOTED_IDENTIFIER ON;
+
                 IF exists (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Check DB' AND Ativo = 1)
                     BEGIN
 

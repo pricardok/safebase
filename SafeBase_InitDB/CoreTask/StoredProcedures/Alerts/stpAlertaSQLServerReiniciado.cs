@@ -11,7 +11,9 @@ namespace InitDB.Client
             return
             //@"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpAlertaSQLServerReiniciado',GETDATE())";
             @"
-                SET NOCOUNT ON
+                SET NOCOUNT ON;
+
+                SET QUOTED_IDENTIFIER ON;
 
 	            -- SQL Server Reiniciado
 	            DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'SQL Server Reiniciado' AND Ativo = 1)

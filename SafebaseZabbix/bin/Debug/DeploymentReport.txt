@@ -9,5 +9,23 @@
        None
 
 ** User actions
+     Drop
+       [SafebaseZabbix] (Assembly)
+     Create
+       [SafebaseZabbix] (Assembly)
 
 ** Supporting actions
+     Drop
+       [dbo].[stpJobExecuteSSIS] (Procedure)
+       [dbo].[stpJobGravaHistorico] (Procedure)
+       [dbo].[stpJobSchedule] (Procedure)
+       [dbo].[stpZabbixSender] (Procedure)
+       [dbo].[stpRemoteQueryZabbix] (Procedure)
+     Create
+       [dbo].[stpJobExecuteSSIS] (Procedure)
+       [dbo].[stpJobGravaHistorico] (Procedure)
+       [dbo].[stpJobSchedule] (Procedure)
+       [dbo].[stpZabbixSender] (Procedure)
+
+If this deployment is executed, [dbo].[stpRemoteQueryZabbix] will be dropped and not re-created.
+

@@ -141,6 +141,12 @@ public partial class StoredProcedures
             ExecuteSql.ExecuteQuery(stpAlertaJobAgendamentoFalha.Query());
         }
 
+        if (ServerAlert == "ALERT_FAILOVER") //  ALERTA FALHA EM JOBS DE AGENDAMENTO INTERNO DA SAFEBASE -- TABLE [Alerta] e [AlertaParametro]
+        {
+            ExecuteSql.ExecuteQuery(stpAlertaFailoverAlwaysOn.Query());
+        }
+
+
         // TESTE DE FUNCIONAMENTO  
 
         if (ServerAlert == "TEST")

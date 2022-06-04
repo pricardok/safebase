@@ -9,10 +9,12 @@ namespace InitDB.Client
         public static string Query()
         {
             return
-            // @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpEnviaEmailProcessosExecucao',GETDATE())";
-            @"
+			// @"insert into [dbo].[Testedb] ([Nome],[DateTest]) values ('Teste da ferramenta DB - stpEnviaEmailProcessosExecucao',GETDATE())";
+			@"
               
-                SET NOCOUNT ON
+                SET NOCOUNT ON;
+
+				SET QUOTED_IDENTIFIER ON;
                 
 	            -- Declara as variaveis
 	            DECLARE	@Subject VARCHAR(500), @Importance AS VARCHAR(6), @EmailBody VARCHAR(MAX), @EmptyBodyEmail VARCHAR(MAX),

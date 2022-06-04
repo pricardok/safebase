@@ -13,7 +13,9 @@ namespace InitDB.Client
 
 			@"
             
-            SET NOCOUNT ON
+            SET NOCOUNT ON;
+
+			SET QUOTED_IDENTIFIER ON;
 
             ---- Recupera os parametros base
             DECLARE @Id_AlertaParametro INT = (SELECT Id_AlertaParametro FROM [dbo].AlertaParametro (NOLOCK) WHERE Nm_Alerta = 'Job Agendamento Falha' AND Ativo = 1)
