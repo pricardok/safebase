@@ -925,7 +925,6 @@ namespace SafeBase_Installer
                     }
                     else
                     {
-                        sqlConn.Close();
                         txtRLog.Text = "";
                         ExecuteSQLCommandForeachGO(CreateTables.Query("" + setDataBase + ""), setDataBase, "Create Tables");
                         ExecuteSQLCommandForeachGO(InsertTables.Query("" + setDataBase + ""), setDataBase, "Insert Tables");

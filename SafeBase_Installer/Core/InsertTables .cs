@@ -344,11 +344,11 @@ namespace SafeBase_Installer
 
             INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (72, 27, 25, 1, N'Alerta File DB - Email', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
 
-            INSERT [dbo].[AlertaEnvio] ([IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (29, 20, 0, N'Job Agendamento Falha - Telegram', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (73, 29, 20, 0, N'Job Agendamento Falha - Telegram', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
             
-            INSERT [dbo].[AlertaEnvio] ([IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (29, 25, 1, N'Job Agendamento Falha - Email', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (74, 29, 25, 1, N'Job Agendamento Falha - Email', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
             
-            INSERT [dbo].[AlertaEnvio] ([IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (29, 22, 0, N'Job Agendamento Falha - Teams', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
+            INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (75, 29, 22, 0, N'Job Agendamento Falha - Teams', CAST(N'2020-04-27T21:58:36.7900000' AS DateTime2), CAST(N'2020-04-27T21:57:41.0000000' AS DateTime2))
             
             INSERT [dbo].[AlertaEnvio] ([Id], [IdAlertaParametro], [IdTipoEnvio], [Ativo], [Des], [DataCriação], [DataAlteracao]) VALUES (76, 1, 28, 0, N'Processo Bloqueado - Zabbix Sender', CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2), CAST(N'2021-05-21T16:37:31.6866667' AS DateTime2))
 

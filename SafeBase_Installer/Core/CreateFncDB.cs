@@ -13,10 +13,6 @@ namespace SafeBase_Installer
             @"
             USE "+ use + @"
             GO
-            SET ANSI_NULLS ON
-            GO
-            SET QUOTED_IDENTIFIER ON
-            GO
 
             -- fncRetiraCaractereInvalidoXML
             CREATE FUNCTION [dbo].[fncRetiraCaractereInvalidoXML] (@Text VARCHAR(MAX))
@@ -117,9 +113,6 @@ namespace SafeBase_Installer
                 RETURN;   
             END
             
-            SET ANSI_NULLS ON
-            GO
-            SET QUOTED_IDENTIFIER ON
             GO
             CREATE FUNCTION fncAgPrimary  (	
                 @DbPrimary sysname 

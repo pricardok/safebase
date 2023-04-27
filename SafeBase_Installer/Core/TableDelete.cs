@@ -343,6 +343,42 @@ namespace SafeBase_Installer
 	        IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[dbo].[AlertaParametro]')) 
 	        DROP TABLE [dbo].[AlertaParametro]
 		        -- -- Dropped Table: AlertaParametro
+
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[dbo].[HistoricoAlwaysOn]')) 
+	        DROP TABLE [dbo].[HistoricoAlwaysOn]
+		        -- Dropped Table: HistoricoAlwaysOn
+
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[dbo].[HistoricoAuditLogins]')) 
+	        DROP TABLE [dbo].[HistoricoAuditLogins]
+		        -- Dropped Table: HistoricoAuditLogins
+
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[dbo].[HistoricoVersionamentoDB]')) 
+	        DROP TABLE [dbo].[HistoricoVersionamentoDB]
+		        -- Dropped Table: HistoricoVersionamentoDB
+
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[dbo].[HistoricoUsuariosAD]')) 
+	        DROP TABLE [dbo].[HistoricoUsuariosAD]
+		        -- Dropped Table: HistoricoUsuariosAD
+
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[dbo].[HistoricoAlteracaoObjetos]')) 
+	        DROP TABLE [dbo].[HistoricoAlteracaoObjetos]
+		        -- Dropped Table: HistoricoAlteracaoObjetos
+
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[job].[Job]')) 
+	        DROP TABLE [job].[Job]
+		        -- Dropped Table: Job
+
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[job].[JobAgendamento]')) 
+	        DROP TABLE [job].[JobAgendamento]
+		        -- Dropped Table: JobAgendamento
+
+			IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID('[job].[JobHistorico]')) 
+	        DROP TABLE [job].[JobHistorico]
+		        -- Dropped Table: JobHistorico
+
+			IF  EXISTS (SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'job')
+			DROP SCHEMA job
+				-- Dropped Schema: job
             GO
 
             ";

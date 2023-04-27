@@ -42,8 +42,8 @@ namespace SafeBase_Installer
 	            @IdSequenceNumber varchar (12) = (select top 1 pa.sequence_number from msdb.dbo.sysmail_profile p join msdb.dbo.sysmail_profileaccount pa on p.profile_id = pa.profile_id 
 																            where p.[name] = 'EnviaEmail')
 
-
-
+				EXECUTE msdb.dbo.sysmail_delete_profile_sp
+							@profile_name = @ProfileAccount
 
             IF EXISTS (SELECT 'email account already created' FROM msdb.dbo.sysmail_account AS T WHERE T.name = @ProfileAccount)
 

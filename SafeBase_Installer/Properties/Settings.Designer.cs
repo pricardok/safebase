@@ -23,15 +23,13 @@ namespace SafeBase_Manager.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("SafeBase for SQL Server")]
         public string aaa {
             get {
                 return ((string)(this["aaa"]));
-            }
-            set {
-                this["aaa"] = value;
             }
         }
     }
