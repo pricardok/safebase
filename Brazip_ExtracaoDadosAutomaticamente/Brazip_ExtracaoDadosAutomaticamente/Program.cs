@@ -215,8 +215,12 @@ namespace Brazip_ExtracaoDadosAutomaticamente
             var operador = "<font color='#0000FF'>";
             int inicioOperador = result.dados[0].mensagensHtml.IndexOf(operador) + operador.Length;
             int finalOperador = result.dados[0].mensagensHtml.IndexOf(":</font></b>", inicioOperador) - inicioOperador;
+            
+            var retorno = result.dados[0].mensagensHtml.Substring(inicioOperador, finalOperador);
 
-            return result.dados[0].mensagensHtml.Substring(inicioOperador, finalOperador);
+            if (retorno.Contains("Protocolo:")) return "Não identificado";
+            
+            return retorno;
         }
     }
 }
