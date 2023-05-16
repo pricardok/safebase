@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="FormularioAvaliacaoAO" targetNamespace="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php">
+      <xsd:complexType name="InserirRequestDados">
+        <xsd:all>
+          <xsd:element name="bzpcodcliente" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpcodempresa" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpdata" nillable="true" type="xsd:string" />
+          <xsd:element name="bzprecurso" nillable="true" type="xsd:string" />
+          <xsd:element name="bzpcodigoreferencia" nillable="true" type="xsd:string" />
+          <xsd:element name="avaliacao" nillable="true" type="xsd:int" />
+          <xsd:element name="comentario" nillable="true" type="xsd:string" />
+          <xsd:element name="solicitacaoatendida" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InserirRequest">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:InserirRequestDados" />
+          <xsd:element name="sigla" nillable="true" type="xsd:string" />
+          <xsd:element name="servicekey" nillable="true" type="xsd:string" />
+          <xsd:element name="hash" nillable="true" type="xsd:string" />
+          <xsd:element name="posicaoinicial" nillable="true" type="xsd:int" />
+          <xsd:element name="quantidade" nillable="true" type="xsd:int" />
+          <xsd:element name="parametro_teste" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InserirResultDados">
+        <xsd:all>
+          <xsd:element name="bzpcodlanca" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InserirResult">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:InserirResultDados" />
+          <xsd:element name="statusRetorno" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterRequestDados">
+        <xsd:all>
+          <xsd:element name="bzpcodlanca" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterRequest">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ObterRequestDados" />
+          <xsd:element name="sigla" nillable="true" type="xsd:string" />
+          <xsd:element name="servicekey" nillable="true" type="xsd:string" />
+          <xsd:element name="hash" nillable="true" type="xsd:string" />
+          <xsd:element name="posicaoinicial" nillable="true" type="xsd:int" />
+          <xsd:element name="quantidade" nillable="true" type="xsd:int" />
+          <xsd:element name="parametro_teste" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterResultDados">
+        <xsd:all>
+          <xsd:element name="bzpcodlanca" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpdata" nillable="true" type="xsd:string" />
+          <xsd:element name="bzprecurso" nillable="true" type="xsd:string" />
+          <xsd:element name="bzpcodigoreferencia" nillable="true" type="xsd:string" />
+          <xsd:element name="avaliacao" nillable="true" type="xsd:int" />
+          <xsd:element name="comentario" nillable="true" type="xsd:string" />
+          <xsd:element name="solicitacaoatendida" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterResult">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ObterResultDados" />
+          <xsd:element name="statusRetorno" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaRequestDados">
+        <xsd:all>
+          <xsd:element name="bzpcodlanca" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpdata" nillable="true" type="xsd:string" />
+          <xsd:element name="bzprecurso" nillable="true" type="xsd:string" />
+          <xsd:element name="bzpcodigoreferencia" nillable="true" type="xsd:string" />
+          <xsd:element name="avaliacao" nillable="true" type="xsd:int" />
+          <xsd:element name="comentario" nillable="true" type="xsd:string" />
+          <xsd:element name="solicitacaoatendida" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaRequest">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ObterListaRequestDados" />
+          <xsd:element name="sigla" nillable="true" type="xsd:string" />
+          <xsd:element name="servicekey" nillable="true" type="xsd:string" />
+          <xsd:element name="hash" nillable="true" type="xsd:string" />
+          <xsd:element name="posicaoinicial" nillable="true" type="xsd:int" />
+          <xsd:element name="quantidade" nillable="true" type="xsd:int" />
+          <xsd:element name="parametro_teste" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfObterResultDados">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ObterResultDados[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaResult">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ArrayOfObterResultDados" />
+          <xsd:element name="statusRetorno" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="inserirIn">
+    <wsdl:part name="request" type="tns:InserirRequest" />
+  </wsdl:message>
+  <wsdl:message name="inserirOut">
+    <wsdl:part name="return" type="tns:InserirResult" />
+  </wsdl:message>
+  <wsdl:message name="obterIn">
+    <wsdl:part name="request" type="tns:ObterRequest" />
+  </wsdl:message>
+  <wsdl:message name="obterOut">
+    <wsdl:part name="return" type="tns:ObterResult" />
+  </wsdl:message>
+  <wsdl:message name="obterListaIn">
+    <wsdl:part name="request" type="tns:ObterListaRequest" />
+  </wsdl:message>
+  <wsdl:message name="obterListaOut">
+    <wsdl:part name="return" type="tns:ObterListaResult" />
+  </wsdl:message>
+  <wsdl:portType name="FormularioAvaliacaoAOPort">
+    <wsdl:operation name="inserir">
+      <documentation>@param InserirRequest $request</documentation>
+      <wsdl:input message="tns:inserirIn" />
+      <wsdl:output message="tns:inserirOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obter">
+      <documentation>@param ObterRequest $request</documentation>
+      <wsdl:input message="tns:obterIn" />
+      <wsdl:output message="tns:obterOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterLista">
+      <documentation>@param ObterListaRequest $request</documentation>
+      <wsdl:input message="tns:obterListaIn" />
+      <wsdl:output message="tns:obterListaOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FormularioAvaliacaoAOBinding" type="tns:FormularioAvaliacaoAOPort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="inserir">
+      <soap:operation soapAction="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php#inserir" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obter">
+      <soap:operation soapAction="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php#obter" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterLista">
+      <soap:operation soapAction="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php#obterLista" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FormularioAvaliacaoAOService">
+    <wsdl:port name="FormularioAvaliacaoAOPort" binding="tns:FormularioAvaliacaoAOBinding">
+      <soap:address location="http://www.mysuite1.com.br/empresas/safw/webservices/FormularioAvaliacaoAO.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
