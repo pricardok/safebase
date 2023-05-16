@@ -16,8 +16,8 @@ namespace Brazip_ExtracaoDadosAutomaticamente
             Console.WriteLine("Extrair dados da Avaliação CSAT do Brazip");
             Console.WriteLine("---------------------------------------------");
 
-            string resultado;
-            resultado = EnviarDados();
+            var resultado = EnviarDados();
+            Console.WriteLine(resultado);
         }
 
         public static string EnviarDados()
