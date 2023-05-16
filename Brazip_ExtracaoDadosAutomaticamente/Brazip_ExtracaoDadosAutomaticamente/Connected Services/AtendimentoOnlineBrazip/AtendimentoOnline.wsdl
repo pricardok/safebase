@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="AtendimentoOnline" targetNamespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php">
+      <xsd:complexType name="ObterListaAnonimoRequestDados">
+        <xsd:all>
+          <xsd:element name="codusuario" nillable="true" type="xsd:int" />
+          <xsd:element name="nome" nillable="true" type="xsd:string" />
+          <xsd:element name="email" nillable="true" type="xsd:string" />
+          <xsd:element name="atendimentoinicio" nillable="true" type="xsd:string" />
+          <xsd:element name="atendimentofinal" nillable="true" type="xsd:string" />
+          <xsd:element name="codclassificacao" nillable="true" type="xsd:int" />
+          <xsd:element name="coddepartamento" nillable="true" type="xsd:int" />
+          <xsd:element name="codavaliacao" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaAnonimoRequest">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ObterListaAnonimoRequestDados" />
+          <xsd:element name="sigla" nillable="true" type="xsd:string" />
+          <xsd:element name="servicekey" nillable="true" type="xsd:string" />
+          <xsd:element name="hash" nillable="true" type="xsd:string" />
+          <xsd:element name="posicaoinicial" nillable="true" type="xsd:int" />
+          <xsd:element name="quantidade" nillable="true" type="xsd:int" />
+          <xsd:element name="parametro_teste" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfObterListaAnonimoResultDados">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ObterListaAnonimoResultDados[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaAnonimoResultDados">
+        <xsd:all>
+          <xsd:element name="idatendimento" nillable="true" type="xsd:string" />
+          <xsd:element name="idatendimentoorigem" nillable="true" type="xsd:string" />
+          <xsd:element name="idatendimentogerado" nillable="true" type="xsd:string" />
+          <xsd:element name="codatendimento" nillable="true" type="xsd:int" />
+          <xsd:element name="codusuario" nillable="true" type="xsd:int" />
+          <xsd:element name="apelido" nillable="true" type="xsd:string" />
+          <xsd:element name="nome" nillable="true" type="xsd:string" />
+          <xsd:element name="email" nillable="true" type="xsd:string" />
+          <xsd:element name="datasolicitacao" nillable="true" type="xsd:int" />
+          <xsd:element name="dataatendimento" nillable="true" type="xsd:int" />
+          <xsd:element name="dataclientesaiu" nillable="true" type="xsd:int" />
+          <xsd:element name="datafinalizacao" nillable="true" type="xsd:int" />
+          <xsd:element name="classificacao" nillable="true" type="xsd:string" />
+          <xsd:element name="departamento" nillable="true" type="xsd:string" />
+          <xsd:element name="unidade" nillable="true" type="xsd:string" />
+          <xsd:element name="avaliacao" nillable="true" type="xsd:string" />
+          <xsd:element name="codavaliacao" nillable="true" type="xsd:int" />
+          <xsd:element name="iddepartamento" nillable="true" type="xsd:int" />
+          <xsd:element name="tempo" nillable="true" type="xsd:int" />
+          <xsd:element name="duracao" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaAnonimoResult">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ArrayOfObterListaAnonimoResultDados" />
+          <xsd:element name="statusRetorno" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaIdentificadoRequestDados">
+        <xsd:all>
+          <xsd:element name="codusuario" nillable="true" type="xsd:int" />
+          <xsd:element name="atendimentoinicio" nillable="true" type="xsd:string" />
+          <xsd:element name="atendimentofinal" nillable="true" type="xsd:string" />
+          <xsd:element name="codclassificacao" nillable="true" type="xsd:int" />
+          <xsd:element name="coddepartamento" nillable="true" type="xsd:int" />
+          <xsd:element name="codavaliacao" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterCliente">
+        <xsd:all>
+          <xsd:element name="codempresa" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpcodigoantecipado" nillable="true" type="xsd:int" />
+          <xsd:element name="nomeempresa" nillable="true" type="xsd:string" />
+          <xsd:element name="cnpj" nillable="true" type="xsd:string" />
+          <xsd:element name="endereco" nillable="true" type="xsd:string" />
+          <xsd:element name="contato" nillable="true" type="xsd:string" />
+          <xsd:element name="obs" nillable="true" type="xsd:string" />
+          <xsd:element name="razaosocial" nillable="true" type="xsd:string" />
+          <xsd:element name="inscest" nillable="true" type="xsd:string" />
+          <xsd:element name="inscmun" nillable="true" type="xsd:string" />
+          <xsd:element name="fone1" nillable="true" type="xsd:string" />
+          <xsd:element name="fone2" nillable="true" type="xsd:string" />
+          <xsd:element name="codigooriginal" nillable="true" type="xsd:string" />
+          <xsd:element name="email_foward" nillable="true" type="xsd:string" />
+          <xsd:element name="email_foward_status" nillable="true" type="xsd:int" />
+          <xsd:element name="codunidade" nillable="true" type="xsd:int" />
+          <xsd:element name="situacao" nillable="true" type="xsd:string" />
+          <xsd:element name="bzpcodusuariovinculado" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpcodusuario" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpdata" nillable="true" type="xsd:string" />
+          <xsd:element name="bzpinadimplente" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterUsuario">
+        <xsd:all>
+          <xsd:element name="codcliente" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpcodigoantecipado" nillable="true" type="xsd:int" />
+          <xsd:element name="codgrupoAOL" nillable="true" type="xsd:int" />
+          <xsd:element name="nomecompleto" nillable="true" type="xsd:string" />
+          <xsd:element name="email1" nillable="true" type="xsd:string" />
+          <xsd:element name="email1_status" nillable="true" type="xsd:int" />
+          <xsd:element name="email2" nillable="true" type="xsd:string" />
+          <xsd:element name="email2_status" nillable="true" type="xsd:int" />
+          <xsd:element name="codempresa" nillable="true" type="xsd:int" />
+          <xsd:element name="obs" nillable="true" type="xsd:string" />
+          <xsd:element name="administrador" nillable="true" type="xsd:int" />
+          <xsd:element name="codigooriginal" nillable="true" type="xsd:string" />
+          <xsd:element name="notaccessao" nillable="true" type="xsd:int" />
+          <xsd:element name="notaccesshd" nillable="true" type="xsd:int" />
+          <xsd:element name="notaccessgc" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpclientevip" nillable="true" type="xsd:int" />
+          <xsd:element name="enabled" nillable="true" type="xsd:int" />
+          <xsd:element name="notenabled" nillable="true" type="xsd:int" />
+          <xsd:element name="notaccessca" nillable="true" type="xsd:int" />
+          <xsd:element name="codunidade" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpgrupo" nillable="true" type="xsd:string" />
+          <xsd:element name="bzpclientemultiunidade" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpcodusuariovinculado" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpcodusuario" nillable="true" type="xsd:int" />
+          <xsd:element name="bzpdata" nillable="true" type="xsd:string" />
+          <xsd:element name="ge_inscrito" nillable="true" type="xsd:int" />
+          <xsd:element name="ge_cleaned" nillable="true" type="xsd:int" />
+          <xsd:element name="ge_naoexportado" nillable="true" type="xsd:int" />
+          <xsd:element name="cpfcnpj" nillable="true" type="xsd:string" />
+          <xsd:element name="bzpinadimplente" nillable="true" type="xsd:int" />
+          <xsd:element name="whatsapp" nillable="true" type="xsd:string" />
+          <xsd:element name="suportewhatsapp" nillable="true" type="xsd:int" />
+          <xsd:element name="dataenviouultimamensagemwhatsapp" nillable="true" type="xsd:int" />
+          <xsd:element name="dtredefsenha" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaIdentificadoRequest">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ObterListaIdentificadoRequestDados" />
+          <xsd:element name="obterCliente" nillable="true" type="tns:ObterCliente" />
+          <xsd:element name="obterUsuario" nillable="true" type="tns:ObterUsuario" />
+          <xsd:element name="sigla" nillable="true" type="xsd:string" />
+          <xsd:element name="servicekey" nillable="true" type="xsd:string" />
+          <xsd:element name="hash" nillable="true" type="xsd:string" />
+          <xsd:element name="posicaoinicial" nillable="true" type="xsd:int" />
+          <xsd:element name="quantidade" nillable="true" type="xsd:int" />
+          <xsd:element name="parametro_teste" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfObterListaIdentificadoResultDados">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ObterListaIdentificadoResultDados[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaIdentificadoResultDados">
+        <xsd:all>
+          <xsd:element name="idatendimento" nillable="true" type="xsd:string" />
+          <xsd:element name="idatendimentoorigem" nillable="true" type="xsd:string" />
+          <xsd:element name="idatendimentogerado" nillable="true" type="xsd:string" />
+          <xsd:element name="codatendimento" nillable="true" type="xsd:int" />
+          <xsd:element name="codusuario" nillable="true" type="xsd:int" />
+          <xsd:element name="apelido" nillable="true" type="xsd:string" />
+          <xsd:element name="codcliente" nillable="true" type="xsd:int" />
+          <xsd:element name="nome" nillable="true" type="xsd:string" />
+          <xsd:element name="email" nillable="true" type="xsd:string" />
+          <xsd:element name="codempresa" nillable="true" type="xsd:int" />
+          <xsd:element name="codigooriginal" nillable="true" type="xsd:int" />
+          <xsd:element name="empresa" nillable="true" type="xsd:string" />
+          <xsd:element name="datasolicitacao" nillable="true" type="xsd:int" />
+          <xsd:element name="dataatendimento" nillable="true" type="xsd:int" />
+          <xsd:element name="dataclientesaiu" nillable="true" type="xsd:int" />
+          <xsd:element name="datafinalizacao" nillable="true" type="xsd:int" />
+          <xsd:element name="classificacao" nillable="true" type="xsd:string" />
+          <xsd:element name="departamento" nillable="true" type="xsd:string" />
+          <xsd:element name="unidade" nillable="true" type="xsd:string" />
+          <xsd:element name="avaliacao" nillable="true" type="xsd:string" />
+          <xsd:element name="codavaliacao" nillable="true" type="xsd:int" />
+          <xsd:element name="iddepartamento" nillable="true" type="xsd:int" />
+          <xsd:element name="tempo" nillable="true" type="xsd:int" />
+          <xsd:element name="duracao" nillable="true" type="xsd:int" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaIdentificadoResult">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ArrayOfObterListaIdentificadoResultDados" />
+          <xsd:element name="statusRetorno" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaDesistenciaRequestDados">
+        <xsd:all>
+          <xsd:element name="datasolicitacao" nillable="true" type="xsd:string" />
+          <xsd:element name="nome" nillable="true" type="xsd:string" />
+          <xsd:element name="email" nillable="true" type="xsd:string" />
+          <xsd:element name="iddepartamento" nillable="true" type="xsd:int" />
+          <xsd:element name="departamento" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaDesistenciaRequest">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ObterListaDesistenciaRequestDados" />
+          <xsd:element name="sigla" nillable="true" type="xsd:string" />
+          <xsd:element name="servicekey" nillable="true" type="xsd:string" />
+          <xsd:element name="hash" nillable="true" type="xsd:string" />
+          <xsd:element name="posicaoinicial" nillable="true" type="xsd:int" />
+          <xsd:element name="quantidade" nillable="true" type="xsd:int" />
+          <xsd:element name="parametro_teste" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfObterListaDesistenciaResultDados">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ObterListaDesistenciaResultDados[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaDesistenciaResultDados">
+        <xsd:all>
+          <xsd:element name="nome" nillable="true" type="xsd:string" />
+          <xsd:element name="email" nillable="true" type="xsd:string" />
+          <xsd:element name="iddepartamento" nillable="true" type="xsd:int" />
+          <xsd:element name="departamento" nillable="true" type="xsd:string" />
+          <xsd:element name="datasolicitacao" nillable="true" type="xsd:string" />
+          <xsd:element name="datadesistencia" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterListaDesistenciaResult">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ArrayOfObterListaDesistenciaResultDados" />
+          <xsd:element name="statusRetorno" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterConversaAtendimentoRequestDados">
+        <xsd:all>
+          <xsd:element name="codusuario" nillable="true" type="xsd:int" />
+          <xsd:element name="idatendimento" nillable="true" type="xsd:string" />
+          <xsd:element name="tipoatendimento" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterConversaAtendimentoRequest">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ObterConversaAtendimentoRequestDados" />
+          <xsd:element name="sigla" nillable="true" type="xsd:string" />
+          <xsd:element name="servicekey" nillable="true" type="xsd:string" />
+          <xsd:element name="hash" nillable="true" type="xsd:string" />
+          <xsd:element name="posicaoinicial" nillable="true" type="xsd:int" />
+          <xsd:element name="quantidade" nillable="true" type="xsd:int" />
+          <xsd:element name="parametro_teste" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfObterConversaAtendimentoResultDados">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="soap-enc:Array">
+            <xsd:attribute wsdl:arrayType="tns:ObterConversaAtendimentoResultDados[]" ref="soap-enc:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ObterConversaAtendimentoResultDados">
+        <xsd:all>
+          <xsd:element name="idatendimento" nillable="true" type="xsd:string" />
+          <xsd:element name="mensagensHtml" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ObterConversaAtendimentoResult">
+        <xsd:all>
+          <xsd:element name="dados" nillable="true" type="tns:ArrayOfObterConversaAtendimentoResultDados" />
+          <xsd:element name="statusRetorno" nillable="true" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="obterListaAnonimoIn">
+    <wsdl:part name="request" type="tns:ObterListaAnonimoRequest" />
+  </wsdl:message>
+  <wsdl:message name="obterListaAnonimoOut">
+    <wsdl:part name="return" type="tns:ObterListaAnonimoResult" />
+  </wsdl:message>
+  <wsdl:message name="obterListaIdentificadoIn">
+    <wsdl:part name="request" type="tns:ObterListaIdentificadoRequest" />
+  </wsdl:message>
+  <wsdl:message name="obterListaIdentificadoOut">
+    <wsdl:part name="return" type="tns:ObterListaIdentificadoResult" />
+  </wsdl:message>
+  <wsdl:message name="obterListaDesistenciaIn">
+    <wsdl:part name="request" type="tns:ObterListaDesistenciaRequest" />
+  </wsdl:message>
+  <wsdl:message name="obterListaDesistenciaOut">
+    <wsdl:part name="return" type="tns:ObterListaDesistenciaResult" />
+  </wsdl:message>
+  <wsdl:message name="ObterConversaAtendimentoIn">
+    <wsdl:part name="request" type="tns:ObterConversaAtendimentoRequest" />
+  </wsdl:message>
+  <wsdl:message name="ObterConversaAtendimentoOut">
+    <wsdl:part name="return" type="tns:ObterConversaAtendimentoResult" />
+  </wsdl:message>
+  <wsdl:portType name="AtendimentoOnlinePort">
+    <wsdl:operation name="obterListaAnonimo">
+      <documentation>@param ObterListaAnonimoRequest $request</documentation>
+      <wsdl:input message="tns:obterListaAnonimoIn" />
+      <wsdl:output message="tns:obterListaAnonimoOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterListaIdentificado">
+      <documentation>@param ObterListaIdentificadoRequest $request</documentation>
+      <wsdl:input message="tns:obterListaIdentificadoIn" />
+      <wsdl:output message="tns:obterListaIdentificadoOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterListaDesistencia">
+      <documentation>@param ObterListaDesistenciaRequest $request</documentation>
+      <wsdl:input message="tns:obterListaDesistenciaIn" />
+      <wsdl:output message="tns:obterListaDesistenciaOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObterConversaAtendimento">
+      <documentation>@param ObterConversaAtendimentoRequest $request</documentation>
+      <wsdl:input message="tns:ObterConversaAtendimentoIn" />
+      <wsdl:output message="tns:ObterConversaAtendimentoOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AtendimentoOnlineBinding" type="tns:AtendimentoOnlinePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="obterListaAnonimo">
+      <soap:operation soapAction="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php#obterListaAnonimo" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterListaIdentificado">
+      <soap:operation soapAction="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php#obterListaIdentificado" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterListaDesistencia">
+      <soap:operation soapAction="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php#obterListaDesistencia" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObterConversaAtendimento">
+      <soap:operation soapAction="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php#ObterConversaAtendimento" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AtendimentoOnlineService">
+    <wsdl:port name="AtendimentoOnlinePort" binding="tns:AtendimentoOnlineBinding">
+      <soap:address location="http://www.mysuite1.com.br/empresas/safw/webservices/AtendimentoOnline.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
