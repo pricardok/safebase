@@ -58,7 +58,7 @@ namespace Brazip_ExtracaoDadosAutomaticamente
 
                     if (result.statusRetorno == "vazio") continue;
 
-                    var connectionString = @"Data Source=TIRADOR;Initial Catalog=testes;User ID=s_coleta_dw;Password=0w4iprxw0D";
+                    var connectionString = @"Data Source=TIRADOR;Initial Catalog=StagingPB;User ID=s_coleta_dw;Password=0w4iprxw0D";
 
                     foreach (var avaliacao in result.dados)
                     {
@@ -82,7 +82,7 @@ namespace Brazip_ExtracaoDadosAutomaticamente
                         if (sqlConn.State == ConnectionState.Closed)
                             sqlConn.Open();
                         
-                        var sqlQuery = @"INSERT INTO [StagingPB] 
+                        var sqlQuery = @"INSERT INTO [Staging].[SurveysBrazip] 
            ([Protocolo]
            ,[Setor]
            ,[Operador]
