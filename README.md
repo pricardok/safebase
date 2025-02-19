@@ -1,2 +1,2 @@
 # safebase
-Sistema de gerenciameto de bancos MSSQL
+Sistema de gerenciamento de bancos MSSQL
